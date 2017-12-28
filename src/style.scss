@@ -1,6 +1,14 @@
-@import "scss/global/global";
-@import "../node_modules/bootstrap/scss/bootstrap";
-@import "scss/layout";
-@import "scss/typography";
+
+//VARIABLES, CRAYOLA SASS, MIXINS
+
+	@import "scss/global/global";
+
+// BOOTSTRAP
+
+	@import "../node_modules/bootstrap/scss/bootstrap";
+
+// LAYOUT
+
+	@import "scss/layout";
 
 	
