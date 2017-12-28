@@ -11,6 +11,8 @@
   var concat = require('gulp-concat');
   var uglify = require('gulp-uglify');
   var del = require('del');
+  var git = require('gulp-git');
+  var gulp-prompt = require('gulp-prompt');
 
 
 
@@ -126,4 +128,28 @@
 
   gulp.task('clean', function () {
     del([paths.tmp, paths.dist]);
+  });
+
+// GIT
+
+  // COMMIT + PROMPT
+    gulp.task('commit', function(){
+        var message;
+        gulp.src('./*', {buffer:false})
+        .pipe(prompt.prompt({
+            type: 'input',
+            name: 'commit',
+            message: 'Please enter commit message...'
+        }, function(res){
+            message = res.commit;
+        }))
+        .pipe(git.commit(message));
+    });
+
+  // PUSH ORIGIN MASTER
+
+    gulp.task('push', function(){
+    git.push('origin', 'master', function (err) {
+      if (err) throw err;
+    });
   });

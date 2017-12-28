@@ -18,6 +18,7 @@
     "gulp-git": "^2.5.0",
     "gulp-htmlclean": "^2.7.16",
     "gulp-inject": "^4.3.0",
+    "gulp-prompt": "^1.0.1",
     "gulp-uglify": "^3.0.0"
   },
   "scripts": {
