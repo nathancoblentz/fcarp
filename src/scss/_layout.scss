@@ -1,4 +1,4 @@
-@import "../global/variables";
+@import "../global/global";
 
 body {
 	background-color: $themeColor;
@@ -7,4 +7,10 @@ body {
 main {
 	background-color: $containerColor;
 	padding: 30px;
+}
+
+.phish {
+	margin: 0 auto;
+	width: 100px;
+	height: auto;
 }

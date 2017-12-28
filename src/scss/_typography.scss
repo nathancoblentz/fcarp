@@ -1,6 +1,4 @@
-@import "../global/variables";
-@import "mixins";
-
+@import "../global/global";
 
 
 @include gwf($Heading, $Body, $headingColor, $bodyColor);

@@ -13,6 +13,11 @@
   var del = require('del');
   var git = require('gulp-git');
 
+  var imagemin = require('gulp-imagemin');
+  var imageminPngquant = require('imagemin-pngquant');
+  var imageminZopfli = require('imagemin-zopfli');
+  var imageminMozjpeg = require('imagemin-mozjpeg'); //need to run 'brew install libpng'
+  var imageminGiflossy = require('imagemin-giflossy');
 
 
 
@@ -20,20 +25,29 @@
 //PATHS
 
   var paths = {
-    src: 'src/**/*',
+    src:     'src/**/*',
     srcHTML: 'src/**/*.html',
-    srcCSS: 'src/**/*.css',
-    srcJS: 'src/**/*.js',
+    srcCSS:  'src/**/*.css',
+    srcJS:   'src/**/*.js',
+    srcIMG:  'src/**/*.{gif,png,jpg}',
+    //srcJPG:  'src/**/*.jpg',
+    //srcPNG:  'src/**/*.png',
     
-    tmp: 'tmp',
+    tmp:      'tmp',
     tmpIndex: 'tmp/index.html',
-    tmpCSS: 'tmp/**/*.css',
-    tmpJS: 'tmp/**/*.js',
-    
-    dist: 'dist',
-    distIndex: 'dist/index.html',
-    distCSS: 'dist/**/*.css',
-    distJS: 'dist/**/*.js'
+    tmpCSS:   'tmp/**/*.css',
+    tmpJS:    'tmp/**/*.js',
+    tmpIMG:   'tmp/**/*.{gif,png,jpg}',
+    //tmpJPG:   'tmp/**/*.jpg',
+    //tmpPNG:   'tmp/**/*.png',
+
+    dist:       'dist',
+    distIndex:  'dist/index.html',
+    distCSS:    'dist/**/*.css',
+    distJS:     'dist/**/*.js',
+    distIMG:    'dist/**/*.{gif,png,jpg}',
+    //distJPG:    'dist/**/*.jpg',
+    //distPNG:    'dist/**/*.png'
   };
 
 
@@ -48,7 +62,15 @@
   gulp.task('js', function () {
     return gulp.src(paths.srcJS).pipe(gulp.dest(paths.tmp));
   });
-  gulp.task('copy', ['html', 'css', 'js']);
+  gulp.task('img', function () {
+    return gulp.src(paths.srcIMG).pipe(gulp.dest(paths.tmp));
+  });
+
+
+  //gulp.task('jpg', function () {return gulp.src(paths.srcJPG).pipe(gulp.dest(paths.tmp));});
+  //gulp.task('png', function () {return gulp.src(paths.srcPNG).pipe(gulp.dest(paths.tmp));});
+
+  gulp.task('copy', ['html', 'css', 'img']);
 
 
 //INJECT
@@ -56,9 +78,15 @@
   gulp.task('inject', ['sass', 'copy'], function () {
     var css = gulp.src(paths.tmpCSS);
     var js = gulp.src(paths.tmpJS);
+    var img =gulp.src(paths.tmpIMG);
+    //var jpg = gulp.src(paths.tmpJPG);
+    //var png = gulp.src(paths.tmpPNG);
     return gulp.src(paths.tmpIndex)
-      .pipe(inject( css, { relative:true } ))
-      .pipe(inject( js, { relative:true } ))
+      .pipe(inject( css, { relative:true  } ))
+      .pipe(inject( js,  { relative:true  } ))
+      .pipe(inject( js,  { relateive:true } ))
+      //.pipe(inject( jpg, { relative:true } ))
+      //.pipe(inject( png, { relative:true } ))
       .pipe(gulp.dest(paths.tmp));
   });
 
@@ -112,13 +140,64 @@
       .pipe(uglify())
       .pipe(gulp.dest(paths.dist));
   });
-  gulp.task('copy:dist', ['html:dist', 'css:dist', 'js:dist']);
+  
+  //COMPRESS ALL IMAGES
+    gulp.task('imagemin', function() {
+        return gulp.src(['src/**/*.{gif,png,jpg}'])
+            .pipe(imagemin([
+                //png
+                imageminPngquant({
+                    speed: 1,
+                    quality: 98 //lossy settings
+                }),
+                imageminZopfli({
+                    more: true
+                }),
+                //gif
+                // imagemin.gifsicle({
+                //     interlaced: true,
+                //     optimizationLevel: 3
+                // }),
+                //gif very light lossy, use only one of gifsicle or Giflossy
+                imageminGiflossy({
+                    optimizationLevel: 3,
+                    optimize: 3, //keep-empty: Preserve empty transparent frames
+                    lossy: 2
+                }),
+                //svg
+                imagemin.svgo({
+                    plugins: [{
+                        removeViewBox: false
+                    }]
+                }),
+                //jpg lossless
+                imagemin.jpegtran({
+                    progressive: true
+                }),
+                //jpg very light lossy, use vs jpegtran
+                imageminMozjpeg({
+                    quality: 90
+                })
+            ]))
+            .pipe(gulp.dest('dist'));
+    });
+
+  gulp.task('img:dist', ['imagemin']);
+
+  gulp.task('copy:dist', ['html:dist', 'css:dist', 'js:dist', 'img:dist']);
   gulp.task('inject:dist', ['copy:dist'], function () {
     var css = gulp.src(paths.distCSS);
     var js = gulp.src(paths.distJS);
+    var img = gulp.src(paths.distIMG);
+    //var jpg = gulp.src(paths.distJPG);
+    //var png = gulp.src(paths.distPNG);  
+
     return gulp.src(paths.distIndex)
       .pipe(inject( css, { relative:true } ))
       .pipe(inject( js, { relative:true } ))
+      .pipe(inject( img, { relateive:true } ))
+      //.pipe(inject( jpg, { relative:true } ))
+      //.pipe(inject( png, { relative:true } ))
       .pipe(gulp.dest(paths.dist));
   });
 
