@@ -26,28 +26,23 @@
 
   var paths = {
     src:     'src/**/*',
-    srcHTML: 'src/**/*.html',
+    srcHTML: 'src/**/*.{html,htm}',
     srcCSS:  'src/**/*.css',
     srcJS:   'src/**/*.js',
     srcIMG:  'src/**/*.{gif,png,jpg}',
-    //srcJPG:  'src/**/*.jpg',
-    //srcPNG:  'src/**/*.png',
     
     tmp:      'tmp',
-    tmpIndex: 'tmp/index.html',
+    tmpIndex: 'tmp/**/*.{html,htm}',
     tmpCSS:   'tmp/**/*.css',
     tmpJS:    'tmp/**/*.js',
     tmpIMG:   'tmp/**/*.{gif,png,jpg}',
-    //tmpJPG:   'tmp/**/*.jpg',
-    //tmpPNG:   'tmp/**/*.png',
 
     dist:       'dist',
-    distIndex:  'dist/index.html',
+    distIndex:  'dist/**/*.{html,htm}',
     distCSS:    'dist/**/*.css',
     distJS:     'dist/**/*.js',
-    distIMG:    'dist/**/*.{gif,png,jpg}',
-    //distJPG:    'dist/**/*.jpg',
-    //distPNG:    'dist/**/*.png'
+    distIMG:    'dist/**/*.{gif,png,jpg}'
+
   };
 
 
@@ -70,7 +65,7 @@
   //gulp.task('jpg', function () {return gulp.src(paths.srcJPG).pipe(gulp.dest(paths.tmp));});
   //gulp.task('png', function () {return gulp.src(paths.srcPNG).pipe(gulp.dest(paths.tmp));});
 
-  gulp.task('copy', ['html', 'css', 'img']);
+  gulp.task('copy', ['html', 'js', 'css', 'img']);
 
 
 //INJECT
@@ -84,9 +79,7 @@
     return gulp.src(paths.tmpIndex)
       .pipe(inject( css, { relative:true  } ))
       .pipe(inject( js,  { relative:true  } ))
-      .pipe(inject( js,  { relateive:true } ))
-      //.pipe(inject( jpg, { relative:true } ))
-      //.pipe(inject( png, { relative:true } ))
+      .pipe(inject( img,  { relative:true } ))
       .pipe(gulp.dest(paths.tmp));
   });
 
@@ -97,9 +90,9 @@
   // Compile sass into CSS & auto-inject into browsers
    
     gulp.task('sass', function() {
-        return gulp.src("src/style.scss")
+        return gulp.src('src/style.scss')
             .pipe(sass())
-            .pipe(gulp.dest("tmp"))
+            .pipe(gulp.dest('tmp'))
             .pipe(browserSync.stream());
     });
 
@@ -108,13 +101,14 @@
     gulp.task('serve', ['inject'], function() {
 
         browserSync.init({
-            server: "./tmp"
+            server: './tmp'
         });
 
-        gulp.watch("./src/style.scss", ['sass', 'inject']);
+        gulp.watch('./src/style.scss', ['sass', 'inject']);
         gulp.watch('./src/**/*.html', ['inject']);
-        gulp.watch(".tmp/*.css").on("change", browserSync.reload);
-        gulp.watch("./tmp/*.html").on('change', browserSync.reload);
+
+        gulp.watch('.tmp/*.css').on('change', browserSync.reload);
+        gulp.watch('./tmp/*.html').on('change', browserSync.reload);
     });
 
 

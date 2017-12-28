@@ -1,7 +1,8 @@
-@import "global/global";
-@import "typography";
+@import "util";
+@import "components";
 
 body {
+	padding-top: 60px;
 	background-color: $themeColor;
 }
 
