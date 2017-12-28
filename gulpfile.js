@@ -51,7 +51,7 @@
 
 //INJECT
 
-  gulp.task('inject', ['copy'], function () {
+  gulp.task('inject', ['sass', 'copy'], function () {
     var css = gulp.src(paths.tmpCSS);
     var js = gulp.src(paths.tmpJS);
     return gulp.src(paths.tmpIndex)
@@ -75,7 +75,7 @@
 
   //SERVER, BROWSER-SYNC  
 
-    gulp.task('serve', ['sass', 'inject'], function() {
+    gulp.task('serve', ['inject'], function() {
 
         browserSync.init({
             server: "./tmp"
@@ -91,7 +91,7 @@
     gulp.task('default', ['serve']);
 
 
-//GULP BUILD
+//DIST BUILD
 
   gulp.task('html:dist', function () {
     return gulp.src(paths.srcHTML)
@@ -99,7 +99,7 @@
       .pipe(gulp.dest(paths.dist));
   });
   gulp.task('css:dist', function () {
-    return gulp.src(paths.srcCSS)
+    return gulp.src(paths.tmpCSS)
       .pipe(concat('style.min.css'))
       .pipe(cleanCSS())
       .pipe(gulp.dest(paths.dist));
