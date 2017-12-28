@@ -12,7 +12,7 @@
   var uglify = require('gulp-uglify');
   var del = require('del');
   var git = require('gulp-git');
-  var gulp-prompt = require('gulp-prompt');
+
 
 
 
