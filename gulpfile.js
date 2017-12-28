@@ -75,7 +75,7 @@
 
   //SERVER, BROWSER-SYNC  
 
-    gulp.task('serve', ['sass'], function() {
+    gulp.task('serve', ['sass', 'inject'], function() {
 
         browserSync.init({
             server: "./tmp"
