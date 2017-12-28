@@ -1,0 +1,15 @@
+@import "../util";
+@import "../variables";
+
+
+@include gwf($Heading, $Body, $headingColor, $bodyColor);
+
+body {
+	font-family: $Body;
+	color: $bodyColor;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: $Heading;
+	color: $headingColor;
+}
