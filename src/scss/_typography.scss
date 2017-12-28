@@ -1,0 +1,11 @@
+@import "../global/variables";
+@import url('https://fonts.googleapis.com/css?family=#{$Heading}|#{$Body}');
+
+body {
+	font-family: '#{$Body}', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: '#{$Heading}', sans-serif;
+
+}
