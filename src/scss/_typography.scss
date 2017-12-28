@@ -1,11 +1,16 @@
 @import "../global/variables";
-@import url('https://fonts.googleapis.com/css?family=#{$Heading}|#{$Body}');
+@import "mixins";
+
+
+
+@include gwf($Heading, $Body, $headingColor, $bodyColor);
 
 body {
-	font-family: '#{$Body}', sans-serif;
+	font-family: $Body;
+	color: $bodyColor;
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: '#{$Heading}', sans-serif;
-
+	font-family: $Heading;
+	color: $headingColor;
 }

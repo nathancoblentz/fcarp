@@ -1,7 +1,10 @@
 @import "../global/variables";
 
 body {
-	background-color: $myColor;
-	color: $myTextColor;
+	background-color: $themeColor;
 }
 
+main {
+	background-color: white;
+	padding: 30px;
+}
