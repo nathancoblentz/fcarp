@@ -196,6 +196,7 @@ gulp.task('serve', ['sass'], function() {
 
   gulp.task('clean', function () {
     del([paths.tmp, paths.dist]);
+    del(['src/**/*.css', 'src/**/*.map.css']);
   });
 
 // GIT

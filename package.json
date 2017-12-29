@@ -1,13 +1,13 @@
 {
   "name": "gulpthings",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is my workflow for Gulp/SASS/Bootstrap.",
   "main": "gulpfile.js",
   "dependencies": {
     "bootstrap": "^4.0.0-beta.2",
     "browser-sync": "^2.21.0",
+    "check-node-version": "^3.1.1",
     "gulp": "^3.9.1",
-    "gulp-sass": "^3.1.0",
     "inject": "^1.0.0-beta2"
   },
   "devDependencies": {
@@ -20,6 +20,7 @@
     "gulp-imagemin": "^4.0.0",
     "gulp-inject": "^4.3.0",
     "gulp-prompt": "^1.0.1",
+    "gulp-sass": "^3.1.0",
     "gulp-uglify": "^3.0.0",
     "imagemin-giflossy": "^5.1.10",
     "imagemin-mozjpeg": "^7.0.0",
@@ -30,5 +31,14 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/nathancoblentz/gulpthings.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/nathancoblentz/gulpthings/issues"
+  },
+  "homepage": "https://github.com/nathancoblentz/gulpthings#readme"
 }

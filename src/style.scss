@@ -1,11 +1,7 @@
-@import "../node_modules/bootstrap/scss/bootstrap";		
-
-@import "scss/util/colors";
-@import "scss/util/crayola";
-@import "scss/util/mixins";
-
-@import "scss/variables";
-
-@import "scss/components/typography";
-
-@import "scss/layout";
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+@import "scss/util/colors.scss";
+@import "scss/util/crayola.scss";
+@import "scss/util/mixins.scss";
+@import "scss/variables.scss";
+@import "scss/components/typography.scss";
+@import "scss/layout.scss";

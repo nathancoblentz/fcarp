@@ -1,4 +1,4 @@
-@import "variables";
+@import "variables.scss";
 
 body {
 	padding-top: 50px;
@@ -27,6 +27,7 @@ body {
 
 .btn-primary {
 	background-color:$themeColor;
+	border-style: none;
 	&:hover {
 		background-color:darken($themeColor, 5%);
 	}
