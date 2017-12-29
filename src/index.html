@@ -11,72 +11,73 @@
  <header>
   <!-- Fixed navbar -->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="#">Fixed navbar</a>
+        <a class="navbar-brand" href="#">Home</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Templates</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown01">
+                  <a class="dropdown-item" target="blank" href="templates/album.htm">Album</a>
+                  <a class="dropdown-item" target="blank" href="templates/blog.htm">Blog</a>
+                  <a class="dropdown-item" target="blank" href="templates/carousel.htm">Carousel</a>
+                  <a class="dropdown-item" target="blank" href="templates/cover-page.htm">Cover</a>
+                  <a class="dropdown-item" target="blank" href="templates/grid.htm">Grid</a>
+                  <a class="dropdown-item" target="blank" href="templates/jumbotron.htm">Jumbotron</a>
+                  <a class="dropdown-item" target="blank" href="templates/jumbotron-narrow.htm">Narrow</a>
+                  <a class="dropdown-item" target="blank" href="templates/navbars.htm">Navbars</a>
+                  <a class="dropdown-item" target="blank" href="templates/starter.htm">Starter</a>
+                  <a class="dropdown-item" target="blank" href="templates/sticky-footer.htm">Footer</a>
+                </div>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" target="blank" href="templates/album.htm">Album</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" target="blank" href="templates/blog.htm">Blog</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" target="blank" href="templates/carousel.htm">Carousel</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" target="blank" href="templates/cover-page.htm">Cover</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" target="blank" href="templates/grid.htm">Grid</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" target="blank" href="templates/jumbotron.htm">Jumbotron</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" target="blank" href="templates/jumbotron-narrow">Narrow</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" target="blank" href="templates/navbars">Navbars</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" target="blank" href="templates/starter.htm">Starter</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" target="blank" href="templates/sticky-footer.htm">Footer</a>
-            </li>
-            
           </ul>
         </div>
     </nav>
 </header>
 
-  <main class="container" role="main">
-    
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <div class="container">
+          <h1 class="display-3">Hello, world!</h1>
+          <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+          <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+        </div>
+      </div>
+    <main class="container" role="main">
 
-    <h1>Heading 1</h1>
-    <p class="lead"><strong>Lead Text: </strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
 
-    <h2>Heading 2</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci vitae facilis, modi </p>
+      <div class="container">
+        <!-- Example row of columns -->
+        <div class="row">
+          <div class="col-md-4">
+            <h2>Heading</h2>
+            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+            <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
+          </div>
+          <div class="col-md-4">
+            <h2>Heading</h2>
+            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+            <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
+          </div>
+          <div class="col-md-4">
+            <h2>Heading</h2>
+            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+            <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
+          </div>
+        </div>
 
-    <h3>Heading 3</h3>
-    <p>quisquam in accusamus impedit quas quos doloribus saepe, esse masdaxime asperiores! Obcaecati fugit</p>
+        <hr>
 
-    <h4>Heading 4</h4>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam hic aut nulla quasi necessitatibus sint quibusdam possimus! Quis cumque quidem, explicabo reprehenderit sunt fuga voluptate aliquid eius, dolorum, voluptatibus nihil.</p>
+      </div> <!-- /container -->
 
-    <h5>Heading 5</h5>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum quis maiores id aliquid a doloremque consequuntur neque eos!</p>
-
-    <h6>Heading 6</h6>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores amet, atque veritatis.</p>
-  </main>
+    </main>
+  <footer class="footer">
+  <div class="container">
+    <span class="text-white">Place sticky footer content here.</span>
+  </div>
+</footer>
     <!--[htmlclean-protect]-->
     <!-- inject:js -->
     <!-- endinject -->

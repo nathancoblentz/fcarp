@@ -1,15 +1,11 @@
+@import "../node_modules/bootstrap/scss/bootstrap";		
 
-//VARIABLES, CRAYOLA SASS, MIXINS
-	@import "scss/variables";
-	@import "scss/components";
-	@import "scss/util";
+@import "scss/util/colors";
+@import "scss/util/crayola";
+@import "scss/util/mixins";
 
-// BOOTSTRAP
+@import "scss/variables";
 
-	@import "../node_modules/bootstrap/scss/bootstrap";
+@import "scss/components/typography";
 
-// LAYOUT
-
-	@import "scss/layout";
-
-	
+@import "scss/layout";

@@ -1,8 +1,9 @@
-@import "../util";
+//TYPOGRAPHY
+
 @import "../variables";
+@import "../util/mixins";
 
-
-@include gwf($Heading, $Body, $headingColor, $bodyColor);
+@include gwf($Heading, $Body);
 
 body {
 	font-family: $Body;
@@ -11,5 +12,5 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
 	font-family: $Heading;
-	color: $headingColor;
+	color: $themeColor;
 }

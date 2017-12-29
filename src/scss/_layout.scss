@@ -1,18 +1,33 @@
-@import "util";
-@import "components";
+@import "variables";
 
 body {
-	padding-top: 60px;
+	padding-top: 50px;
 	background-color: $themeColor;
+
+	nav {
+		.dropdown-menu {
+			@extend .bg-dark !optional;
+			border-style:none;
+			a {
+				color:#ccc;
+				&:hover {
+					background-color: $themeColor;
+					color:#fff;
+				} 
+
+			}
+		}
+	}
+
+	main {
+		background: #fff;
+		padding: 30px;
+	}
 }
 
-main {
-	background-color: $containerColor;
-	padding: 30px;
-}
-
-.phish {
-	margin: 0 auto;
-	width: 100px;
-	height: auto;
+.btn-primary {
+	background-color:$themeColor;
+	&:hover {
+		background-color:darken($themeColor, 5%);
+	}
 }

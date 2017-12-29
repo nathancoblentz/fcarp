@@ -1,6 +1,8 @@
+@import "util/colors";
 @import "util/crayola";
 
-$themeColor: $bittersweet;
+$themeColor: $BlueMarguerite;
+$primary:	$themeColor !important;
 $containerColor: #fff;
 
 $Body:	Raleway;
