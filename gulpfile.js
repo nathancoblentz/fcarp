@@ -20,6 +20,7 @@
   var imageminGiflossy = require('imagemin-giflossy');
 
 
+    gulp.task('default', ['inject', 'serve']);
 
 
 //PATHS
@@ -98,22 +99,16 @@
 
   //SERVER, BROWSER-SYNC  
 
-    gulp.task('serve', ['inject'], function() {
+gulp.task('serve', ['sass'], function() {
 
-        browserSync.init({
-            server: './tmp'
-        });
-
-        gulp.watch('./src/style.scss', ['sass', 'inject']);
-        gulp.watch('./src/**/*.html', ['inject']);
-
-        gulp.watch('.tmp/*.css').on('change', browserSync.reload);
-        gulp.watch('./tmp/*.html').on('change', browserSync.reload);
+    browserSync.init({
+        server: "./tmp"
     });
 
-
-    gulp.task('default', ['serve']);
-
+    gulp.watch("src/scss/*.scss", ['sass']);
+    gulp.watch('./src/**/*.html', ['inject']);
+    gulp.watch("./tmp/**/*.html").on('change', browserSync.reload);
+});
 
 //DIST BUILD
 
