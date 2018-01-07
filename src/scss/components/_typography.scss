@@ -1,16 +1,25 @@
+@import "../util/util.scss";
+@import "../variables.scss";
 //TYPOGRAPHY
 
-@import "../variables.scss";
-@import "../util/mixins.scss";
-
-@include gwf($Heading, $Body);
+@include gwf($headingFont, $bodyFont, $displayFont, $codeFont);
 
 body {
-	font-family: $Body;
-	color: $bodyColor;
+	font-family: $bodyFont !important;
+	color: $bodyColor !important;
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: $Heading;
-	color: $themeColor;
+	font-family: $headingFont !important;
+	color: $headingColor !important;
+}
+
+.display-1, .display-2, .display-3, .display-4 {
+	font-family: $displayFont !important;
+	color:$displayColor !important;
+}
+
+.txt-code {
+	font-family: $codeFont;
+	font-color: theme-color('danger');
 }

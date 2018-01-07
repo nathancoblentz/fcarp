@@ -1,13 +1,30 @@
-@import "util/colors";
-@import "util/crayola";
+@import "util/util.scss";
 
-$themeColor: $red;
-$primary:	$themeColor !important;
+$enable-shadows: true;
+
+$themeColor: $BurningOrange;
+$bgColor: $themeColor;
+$theme-colors: ("primary": ($themeColor));
+
+
 $containerColor: #fff;
 
-$Body:	Raleway;
-$bodyColor: #000;
+$bodyFont:	Poppins;
+$bodyURL: $bodyFont;
+$bodyColor: $Nero;
+$bodyStyle: sans-serif;
 
-$Heading: Ubuntu;
+$headingFont:  Ubuntu;
+$headingURL: $headingFont;
 $headingColor: $themeColor;
+$headingStyle: sans-serif;
 
+$displayFont:  Playball;
+$displayURL: $headingFont;
+$displayColor: $themeColor;
+$displayStyle: sans-serif;
+
+$codeFont:  Inconsolata;
+$codeURL: $headingFont;
+$codeColor: $themeColor;
+$codeStyle: sans-serif;

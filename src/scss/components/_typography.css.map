@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAAA;;;;;GAKG;ACmBS,mEAAY;ACjBxB,IAAK;EACJ,WAAW,ECDL,OAAO;EDEb,KAAK,ECDM,IAAI;;ADIhB,sBAAuB;EACtB,WAAW,ECHF,MAAM;EDIf,KAAK,ECHS,OAAW",
-"sources": ["../util/_crayola.scss","../util/_mixins.scss","_typography.scss","../_variables.scss"],
-"names": [],
-"file": "_typography.css"
-}

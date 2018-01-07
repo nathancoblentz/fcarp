@@ -2,33 +2,10 @@
 
 body {
 	padding-top: 50px;
-	background-color: $themeColor;
+	background-color: $bgColor !important;
 
-	nav {
-		.dropdown-menu {
-			@extend .bg-dark !optional;
-			border-style:none;
-			a {
-				color:#ccc;
-				&:hover {
-					background-color: $themeColor;
-					color:#fff;
-				} 
-
-			}
-		}
-	}
-
-	main {
-		background: #fff;
-		padding: 30px;
-	}
-}
-
-.btn-primary {
-	background-color:$themeColor;
-	border-style: none;
-	&:hover {
-		background-color:darken($themeColor, 5%);
+	main.container {
+		background-color: $containerColor;
+		padding: 20px;
 	}
 }

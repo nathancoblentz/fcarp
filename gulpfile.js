@@ -18,9 +18,11 @@
   var imageminZopfli = require('imagemin-zopfli');
   var imageminMozjpeg = require('imagemin-mozjpeg'); //need to run 'brew install libpng'
   var imageminGiflossy = require('imagemin-giflossy');
+  var nunjucksRender = require('gulp-nunjucks-render');
 
 
-    gulp.task('default', ['inject', 'serve']);
+
+    gulp.task('default', ['clean', 'inject', 'serve']);
 
 
 //PATHS
@@ -107,6 +109,7 @@ gulp.task('serve', ['sass'], function() {
 
     gulp.watch("src/scss/*.scss", ['sass']);
     gulp.watch('./src/**/*.html', ['inject']);
+
     gulp.watch("./tmp/**/*.html").on('change', browserSync.reload);
 });
 
@@ -196,7 +199,11 @@ gulp.task('serve', ['sass'], function() {
 
   gulp.task('clean', function () {
     del([paths.tmp, paths.dist]);
-    del(['src/**/*.css', 'src/**/*.map.css']);
+    del(['src/**/*.css', 'src/**/*.css.map']);
+  });
+
+  gulp.task('clearcss', function () {
+    del(['src/**/*.css', 'src/**/*.css.map']);
   });
 
 // GIT
@@ -222,3 +229,18 @@ gulp.task('serve', ['sass'], function() {
       if (err) throw err;
     });
   });
+
+
+  //TEMPLATE ENGINE
+
+  gulp.task('nunjucks', function() {
+  // nunjucks stuff here
+  //Gets .html and .nunjucks files in pages
+    return gulp.src('src/pages/**/*.+(html|nunjucks)')
+    //renders template with nunjucks
+    .pipe(nunjucksRender ({
+      path: ['src/templates/nunjucks']
+    }))
+    // output files in app folder
+    .pipe(gulp.dest('src/output'))
+});
